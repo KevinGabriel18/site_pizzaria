@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faustino</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+</head>
+
+<body>
+    <header>
+        <nav id="navbar">
+            <a href="/index"><img id="nav_logo" src="/images/logofaustino.png" alt="logo"></a>
+            <ul id="nav_list">
+                <li class="nav-item active"><a href="#produtos">Produtos</a></li>
+                <li class="nav-item"><a href="#sobre-nos">Sobre nós</a></li>
+                <li class="nav-item"><a href="#contato">Contato</a></li>
+            </ul>
+            <a class="butao-cont" href="/login"><button class="btn-default">Login</button></a>
+            <button id="mobile_btn"><i class="fa-solid fa-bars"></i></button>
+        </nav>
+        <div id="mobile_menu">
+            <ul id="mobile_nav_list">
+                <li class="nav-item active"><a href="#produtos">Produtos</a></li>
+                <li class="nav-item"><a href="#sobre-nos">Sobre nós</a></li>
+                <li class="nav-item"><a href="#contato">Contato</a></li>
+            </ul>
+            <a class="butao-cont" href="/login"><button class="btn-default">Login</button></a>
+        </div>
+    </header>
+    <script src="/javascripts/navbar.js"></script>
+
+    <input type="checkbox" id="toggle-banner" style="display:none;">
+    <label for="toggle-banner">
+        <img id="banner" src="/images/bannerpizza.png" alt="banner">
+    </label>
+
+
+    <section id="produtos">
+        <h2 class="titulo">Produtos</h2><br>
+        <a href="/produtos">
+            <p id="vermais">ver mais</p>
+        </a>
+        <div class="prod">
+            <img class="imagprod" src="https://i.ytimg.com/vi/tiW-9oASTx0/maxresdefault.jpg"
+                alt="">
+            <div class="container-prod">
+                <h3 id="info-produto1">Pizza Portuguesa</h3>
+                <div class="preco-produto1">R$ 45,00</div>
+                <button class="adc-butao" onclick="selecionarprod('produto1')">Adicionar</button>
+            </div>
+        </div>
+
+        <div class="prod">
+            <img class="imagprod" src="https://caprichosdolar-files.s3-accelerate.amazonaws.com/2023/04/Pizza-Napolitana-1-500x500.jpg"
+                alt="">
+            <div class="container-prod">
+                <h3 id="info-produto2">Pizza Napolitano</h3>
+                <div class="preco-produto2">R$ 50,00</div>
+                <button class="adc-butao" onclick="selecionarprod('produto2')">Adicionar</button>
+            </div>
+        </div>
+
+        <div class="prod">
+            <img class="imagprod"
+                src="https://www.sabornamesa.com.br/media/k2/items/cache/513d7a0ab11e38f7bd117d760146fed3_XL.jpg"
+                alt="">
+            <div class="container-prod">
+                <h3 id="info-produto3">Pizza Calabresa</h3>
+                <div class="preco-produto3">R$ 45,00</div>
+                <button class="adc-butao" onclick="selecionarprod('produto3')">Adicionar</button>
+            </div>
+        </div>
+        <div class="prod">
+            <img class="imagprod"
+                src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjFwpJHe9nWRx2MW5kaFs4oZDKX-TUUE_vsBmLndopr4PWlV0JEdRhCW2KOm-ZTU9rc1Wb8Hi_w-Dzb2OSq8t3ezJwNn74xjgwRQe6jT8TC4a8yHrcyno1oRtapahD8RMOSW_w7n0U-n-Ae-_vQT5KPNtplnOj2MDQfzNTfUigDS54hitZMsFUR2L-uBAE/s1600/receita-de-pizza-a-paulista.webp"
+                alt="">
+            <div class="container-prod">
+                <h3 id="info-produto4">Pizza Paulista</h3>
+                <div class="preco-produto4">R$ 55,00</div>
+                <button class="adc-butao" onclick="selecionarprod('produto4')">Adicionar</button>
+            </div>
+        </div>
+        <div class="prod">
+            <img class="imagprod" src="https://s2-receitas.glbimg.com/wb7DIMyCpEyV07sTAtcDWD8HQjw=/0x0:1200x675/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_1f540e0b94d8437dbbc39d567a1dee68/internal_photos/bs/2024/h/r/EfCbvqTbeDRAD3Lzc5xA/pizza-margherita.jpg" alt="">
+            <div class="container-prod">
+                <h3 id="info-produto5">Pizza Margarita</h3>
+                <div class="preco-produto5">R$ 85,00</div>
+                <button class="adc-butao" onclick="selecionarprod('produto5')">Adicionar</button>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="sobre-nos">
+        <h2>Sobre nós</h2>
+
+        <div class="container-sobre-nos">
+            <p>Na PetShow, somos apaixonados por cuidar dos seus animais de estimação. Nossa missão é oferecer os
+                melhores serviços de banho, tosa e cuidados especiais para que seu pet se sinta sempre feliz e saudável.
+                Com uma equipe experiente e dedicada, garantimos que cada visita ao nosso espaço seja uma experiência
+                agradável e segura.</p>
+        </div>
+
+
+
+    </section>
+
+    <section id="contato">
+        <h2>Contato</h2>
+        <form>
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome" required>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <label for="assunto">Assunto:</label>
+            <input type="text" id="assunto" name="assunto" required>
+            <label for="mensagem">Mensagem:</label>
+            <textarea id="mensagem" name="mensagem" required></textarea>
+            <button id="botao-enviar" type="submit">Enviar</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Faustino. Todos os direitos reservados.</p><br>
+        <p>Desenvolvido por: Kevin Gabriel</p><br>
+        <p>Contato: (75) 98351-2229</p>
+    </footer>
+    <script src="/javascript/passar-produto.js"></script>
+</body>
+
+</html>
