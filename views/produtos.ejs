@@ -18,7 +18,7 @@
 <body>
     <header>
         <nav id="navbar">
-            <a href="/index"><img id="nav_logo" src="/images/logofaustino.png" alt="logo"></a>
+            <a href="/"><img id="nav_logo" src="/images/logofaustino.png" alt="logo"></a>
             <ul id="nav_list">
                 <li class="nav-item active"><a href="#produtos">Produtos</a></li>
                 <li class="nav-item"><a href="/index#sobre-nos">Sobre nós</a></li>
@@ -38,12 +38,12 @@
             <a class="butao-cont" href="/login"><button class="btn-default">Login</button></a>
         </div>
     </header>
-    <script src="javascripts/navbar.js"></script>
+    <script src="/javascripts/navbar.js"></script>
 
 
     <h1 class="titulo">Produtos</h1>
 
-    <section id="produtos">
+    <section id="produtoss">
         <div class="prod">
 
             <img class="imagprod" src="https://i.ytimg.com/vi/tiW-9oASTx0/maxresdefault.jpg"
@@ -102,6 +102,14 @@
                 <button class="adc-butao" onclick="selecionarprod('produto6')">Adicionar</button>
             </div>
         </div>
+
+        <section id="produtos">
+            <h2>Produtos Disponíveis</h2>
+            <div id="listaProdutos">
+              <!-- Produtos serão renderizados aqui -->
+            </div>
+          </section>
+          
         
     </section>
 
@@ -110,7 +118,35 @@
         <p>Desenvolvido por: Kevin Gabriel</p><br>
         <p>Contato: (75) 98351-2229</p>
     </footer>
-    <script src="js/passar-produto.js"></script>
+    <script src="/javascripts/passar-produto.js"></script>
+    <script>
+        async function carregarProdutos() {
+  try {
+    const response = await fetch('/produtos');
+    const produtos = await response.json();
+    const listaProdutos = document.getElementById('listaProdutos');
+    listaProdutos.innerHTML = ''; // Limpar a lista antes de atualizar
+
+    produtos.forEach(produto => {
+      const produtoDiv = document.createElement('div');
+      produtoDiv.className = 'produto';
+      produtoDiv.innerHTML = `
+        <img src="${produto.imagem}" alt="${produto.nome}" style="width: 150px; height: auto;" />
+        <h3>${produto.nome}</h3>
+        <p>R$ ${produto.preco.toFixed(2)}</p>
+      `;
+      listaProdutos.appendChild(produtoDiv);
+    });
+  } catch (error) {
+    console.error('Erro ao carregar produtos:', error);
+  }
+}
+
+// Chamada ao carregar a página
+document.addEventListener('DOMContentLoaded', carregarProdutos);
+
+    </script>
+    
 </body>
 
 </html>

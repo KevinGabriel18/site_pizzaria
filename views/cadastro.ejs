@@ -16,7 +16,7 @@
 <body>
     <header>
         <nav id="navbar">
-            <a href="/index"><img id="nav_logo" src="/images/logofaustino.png" alt="logo"></a>
+            <a href="/"><img id="nav_logo" src="/images/logofaustino.png" alt="logo"></a>
             <ul id="nav_list">
                 <li class="nav-item active"><a href="/produtos">Produtos</a></li>
                 <li class="nav-item"><a href="/index#sobre-nos">Sobre nós</a></li>
@@ -35,20 +35,18 @@
         </div>
     </header>
     <script src="/javascripts/navbar.js"></script>
+    <script type="module" src="/javascripts/cadastro.js"></script>
+
    
  <section id="cadastroo">
 <div class="cadastro">
     <h2>Cadastro</h2>
     <form action="/cadastrar" method="post" class="form">
-        <div >
-            <label for="nome">Nome Completo</label>
-            <input type="text" id="nome" name="nome" required>
-        </div>
         <div>
             <label for="email">E-mail</label>
             <input type="email" id="email" name="email" required>
         </div>
-        <div >
+        <div>
             <label for="senha">Senha</label>
             <input type="password" id="senha" name="senha" required>
         </div>
@@ -56,36 +54,7 @@
             <label for="confirmar_senha">Confirmar Senha</label>
             <input type="password" id="confirmar_senha" name="confirmar_senha" required>
         </div>
-        <div >
-            <label>Gênero:</label>
-            <label><input type="radio" name="genero" value="masculino" required> Masculino</label>
-            <label><input type="radio" name="genero" value="feminino" required> Feminino</label>
-            <label><input type="radio" name="genero" value="outro" required> Outro</label>
-        </div>
-        <div >
-            <label for="nascimento">Data de Nascimento</label>
-            <input type="date" id="nascimento" name="nascimento" required>
-        </div>
-        <div >
-            <label for="telefone">Telefone</label>
-            <input type="tel" id="telefone" name="telefone" required>
-        </div>
-        <div >
-            <label for="estado">Estado</label>
-            <select id="estado" name="estado" required>
-                <option value="">Selecione seu estado</option>
-                <option value="SP">São Paulo</option>
-                <option value="RJ">Rio de Janeiro</option>
-                <option value="MG">Minas Gerais</option>
-                <option value="ES">Espírito Santo</option>
-                <option value="OUTRO">Outro</option>
-            </select>
-        </div>
-        <div>
-            <label for="cidade">Cidade</label>
-            <input type="text" id="cidade" name="cidade" required>
-        </div>
-        <button type="submit" class="submit-btn">Cadastrar</button>
+        <button type="submit">Cadastrar</button>
     </form>
 </div>
  </section>

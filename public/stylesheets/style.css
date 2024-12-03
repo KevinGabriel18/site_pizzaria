@@ -8,6 +8,11 @@ html {
   scroll-behavior: smooth;
 }
 
+#gg {
+  display: flex;
+  color: #000;
+}
+
 header {
   width: 100%;
   padding: 1px 8%;

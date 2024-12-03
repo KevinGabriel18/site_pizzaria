@@ -17,7 +17,7 @@
 
   <header>
     <nav id="navbar">
-        <a href="/index"><img id="nav_logo" src="/images/logofaustino.png" alt="logo"></a>
+        <a href="/"><img id="nav_logo" src="/images/logofaustino.png" alt="logo"></a>
         <ul id="nav_list">
             <li class="nav-item active"><a href="/produtos">Produtos</a></li>
             <li class="nav-item"><a href="/index#sobre-nos">Sobre nós</a></li>
@@ -36,6 +36,8 @@
     </div>
 </header>
 <script src="/javascripts/navbar.js"></script>
+<script type="module" src="/javascripts/login.js"></script>
+
 
 <section id="loginn">
 <div class="login">
@@ -43,13 +45,13 @@
         <h1>Login</h1>
         <p>Digite os seus dados de acesso no campo abaixo.</p>
         <label for="email">E-mail</label><br>
-        <input type="email" placeholder="Digite seu e-mail" autofocus="true" />
+        <input type="email" name="email" placeholder="Digite seu e-mail" required autofocus="true" />
         <label for="password">Senha</label><br>
-        <input type="password" placeholder="Digite sua senha" />
+        <input type="password" name="password" placeholder="Digite sua senha" required />
         <a href="/">Esqueci minha senha</a>
-        <input type="submit" value="Acessar"/>
+        <button type="submit">Login</button>
         <p>Ainda não possui uma conta? <a href="/cadastro">Cadastre-se</a></p>
-    </form>
+      </form>
 </div>
 </section>
 

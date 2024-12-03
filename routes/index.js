@@ -21,6 +21,11 @@ router.get('/cadastro', function(req, res, next) {
   res.render('cadastro'); // Renderiza "views/cadastro.ejs"
 });
 
+/* Rota para a página de combos */
+router.get('/dashboard', function(req, res, next) {
+  res.render('dashboard'); // Renderiza "views/dashboard.ejs"
+});
+
 /* Rota para a página de bebidas */
 router.get('/produtos', function(req, res, next) {
   res.render('produtos'); // Renderiza "views/produtos.ejs"

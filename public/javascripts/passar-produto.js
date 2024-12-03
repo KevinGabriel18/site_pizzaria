@@ -26,7 +26,7 @@ function selecionarprod(produto) {
     localStorage.setItem('carrinho', JSON.stringify(carrinho));
 
     alert("O produto foi adcionado")
-    window.location.href = 'carrinho.html';
+    window.location.href = '/carrinho';
 }
 
 
@@ -37,17 +37,13 @@ function carregarCarrinho() {
     const CSSconteinerRule = document.querySelector('.container');
 
     const prodimagens = {
-        'produto1': 'https://www.pngitem.com/pimgs/m/772-7720817_banho-e-tosa-png-3-png-image.png',
-        'produto2': 'https://cdn.awsli.com.br/2500x2500/1226/1226108/produto/55648228/04f1bcd44a.jpg',
-        'produto3': 'https://images.tcdn.com.br/img/img_prod/573283/kit_para_banho_caes_filhotes_shampoo_condicionador_e_perfume_baby_cachorro_filhote_sanol_536825_1_8a3adef49c3ea7cc540cb1bcd1ab9e6a.jpg',
-        'produto4': 'https://www.galaxcommerce.com.br/sistema/upload/4116/produtos/escova-pet-rasqueadeira-pet-tira-pelos-pra-cachorro-e-gatos-cerdas-macias-com-botao_2023-10-29_17-25-43_0_83.JPG',
-        'produto5': 'https://imgs.casasbahia.com.br/1523140742/1xg.jpg',
-        'produto6': 'https://cdn.awsli.com.br/600x700/1095/1095221/produto/40384673/2e21a5d78a.jpg',
-        'produto7': 'https://www.petlove.com.br/images/products/258569/product/RAOWHI_4.JPG?1658246240',
-        'produto8': 'https://www.galaxcommerce.com.br/sistema/upload/4116/produtos/escova-pet-rasqueadeira-pet-tira-pelos-pra-cachorro-e-gatos-cerdas-macias-com-botao_2023-10-29_17-25-43_0_83.JPG',
-        'produto9': 'https://imgs.casasbahia.com.br/1523140742/1xg.jpg',
-        'produto10': 'https://cdn.awsli.com.br/600x700/1095/1095221/produto/40384673/2e21a5d78a.jpg',
-        'produto11': 'https://www.petlove.com.br/images/products/258569/product/RAOWHI_4.JPG?1658246240',
+        'produto1': 'https://i.ytimg.com/vi/tiW-9oASTx0/maxresdefault.jpg',
+        'produto2': 'https://caprichosdolar-files.s3-accelerate.amazonaws.com/2023/04/Pizza-Napolitana-1-500x500.jpg',
+        'produto3': 'https://www.sabornamesa.com.br/media/k2/items/cache/513d7a0ab11e38f7bd117d760146fed3_XL.jpg',
+        'produto4': 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjFwpJHe9nWRx2MW5kaFs4oZDKX-TUUE_vsBmLndopr4PWlV0JEdRhCW2KOm-ZTU9rc1Wb8Hi_w-Dzb2OSq8t3ezJwNn74xjgwRQe6jT8TC4a8yHrcyno1oRtapahD8RMOSW_w7n0U-n-Ae-_vQT5KPNtplnOj2MDQfzNTfUigDS54hitZMsFUR2L-uBAE/s1600/receita-de-pizza-a-paulista.webp',
+        'produto5': 'https://s2-receitas.glbimg.com/wb7DIMyCpEyV07sTAtcDWD8HQjw=/0x0:1200x675/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_1f540e0b94d8437dbbc39d567a1dee68/internal_photos/bs/2024/h/r/EfCbvqTbeDRAD3Lzc5xA/pizza-margherita.jpg',
+        'produto6': 'https://www.receitasnestle.com.br/sites/default/files/srh_recipes/d036cd01122da62bf581784f52d99b3a.jpg',
+        
     }
 
     let demoElement = document.getElementById("add");
@@ -105,7 +101,7 @@ function alterarQuantidade(produtoId, delta) {
 
 function resumoCompras() {
     let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
-    let frete = 25;
+    let frete = 10;
     let subtotal = 0
 
     carrinho.forEach(novoProduto => { subtotal += novoProduto.preco * novoProduto.quantidade });

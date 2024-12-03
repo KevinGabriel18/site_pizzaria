@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="/stylesheets/dashboard.css">
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/dashboard">Dashboard</a></li>
+                <li><a href="/logout">Sair</a></li>
+            </ul>
+        </nav>
+
+        <main>
+            <h1>Bem-vindo ao Dashboard</h1>
+
+            <section class="produtos">
+                <h2>Gerenciar Produtos</h2>
+                <button id="cadastrarProduto">Cadastrar Produto</button>
+                <div id="listaProdutos">
+                    <!-- Lista de produtos será gerada aqui via JavaScript -->
+                </div>
+            </section>
+
+            <section class="pedidos">
+                <h2>Pedidos Recentes</h2>
+                <div id="listaPedidos">
+                    <!-- Lista de pedidos será gerada aqui -->
+                </div>
+            </section>
+        </main>
+
+        <div id="modalCadastro" class="modal">
+            <div class="modal-content">
+                <h3>Cadastrar Produto</h3>
+                <form id="formCadastroProduto">
+                    <label for="nomeProduto">Nome do Produto</label>
+                    <input type="text" id="nomeProduto" name="nomeProduto" required>
+                
+                    <label for="precoProduto">Preço</label>
+                    <input type="number" id="precoProduto" name="precoProduto" required>
+                
+                    <label for="imagemProduto">URL da Imagem do Produto</label>
+                    <!-- Mudança: agora o usuário insere um link -->
+                    <input type="text" id="imagemProduto" name="imagemProduto" placeholder="Insira o link da imagem" required>
+                
+                    <button type="submit">Cadastrar</button>
+                    <button type="button" id="fecharModal">Cancelar</button>
+                </form>
+                
+                
+            </div>
+        </div>
+
+    </div>
+    
+    <script src="/javascripts/dashboard.js"></script>
+</body>
+</html>
