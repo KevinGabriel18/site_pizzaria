@@ -16,6 +16,12 @@ router.get('/login', function(req, res, next) {
   res.render('login'); // Renderiza "views/login.ejs"
 });
 
+/* Rota para a página inicial */
+router.get('/pedido', function(req, res, next) {
+  res.render('pedido'); // Renderiza "views/pedido.ejs"
+});
+
+
 /* Rota para a página de combos */
 router.get('/cadastro', function(req, res, next) {
   res.render('cadastro'); // Renderiza "views/cadastro.ejs"

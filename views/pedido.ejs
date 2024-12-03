@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedido</title>
+    <style> 
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        p {
+            color: #666;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            margin: 10px 0;
+        }
+        a {
+            color: #333;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Detalhes do Pedido</h1>
+    <p>Pedido ID: <%= pedido.id %></p>
+    <p>Cliente: <%= pedido.cliente %></p>
+    <p>Total: R$ <%= pedido.total.toFixed(2) %></p>
+
+    <ul>
+        <% pedido.itens.forEach(item => { %>
+            <li><%= item.nome %> - R$ <%= item.preco.toFixed(2) %> x <%= item.quantidade %></li>
+        <% }) %>
+    </ul>
+</body>
+
+</html>

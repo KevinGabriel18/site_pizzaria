@@ -81,3 +81,33 @@ document.addEventListener('DOMContentLoaded', () => {
     carregarProdutos();
    
 });
+
+function carregarPedidos() {
+    fetch('/api/pedidos')
+        .then(response => response.json())
+        .then(pedidos => {
+            const listaPedidos = document.getElementById('listaPedidos');
+            listaPedidos.innerHTML = '';
+
+            pedidos.forEach(pedido => {
+                const pedidoDiv = document.createElement('div');
+                pedidoDiv.className = 'pedido';
+                pedidoDiv.innerHTML = `
+                    <h3>Pedido #${pedido.id}</h3>
+                    <p>Total: R$ ${pedido.total.toFixed(2)}</p>
+                    <ul>
+                        ${pedido.itens.map(item => `
+                            <li>${item.nome} - Qtd: ${item.quantidade} - R$ ${item.preco.toFixed(2)}</li>
+                        `).join('')}
+                    </ul>
+                    <hr>
+                `;
+                listaPedidos.appendChild(pedidoDiv);
+            });
+        })
+        .catch(err => {
+            console.error('Erro ao carregar os pedidos:', err);
+        });
+}
+
+// Chame carregarPedidos() ao carregar o dashboard

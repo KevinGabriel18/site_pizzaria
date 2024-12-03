@@ -215,7 +215,28 @@ app.get('/produtos', async (req, res) => {
 });
 
 
+app.use(express.json());
 
+let pedidos = []; // Simula um banco de dados
+
+// Rota para receber pedidos finalizados
+app.post('/api/pedidos', (req, res) => {
+    const pedido = req.body;
+
+    if (!pedido.itens || !pedido.total) {
+        return res.status(400).json({ error: "Dados do pedido incompletos." });
+    }
+
+    pedido.id = Date.now(); // Cria um ID único para o pedido
+    pedidos.push(pedido);
+
+    res.status(201).json({ message: "Pedido recebido com sucesso!" });
+});
+
+// Rota para o dashboard acessar pedidos
+app.get('/api/pedidos', (req, res) => {
+    res.json(pedidos);
+});
 
 
 module.exports = app;

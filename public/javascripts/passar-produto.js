@@ -130,3 +130,41 @@ document.addEventListener('DOMContentLoaded', () => {
     carregarCarrinho();
     resumoCompras();
 });
+
+function finalizarPedido() {
+    // Simula itens do carrinho
+    const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+
+    if (carrinho.length === 0) {
+        alert("Seu carrinho está vazio!");
+        return;
+    }
+
+    const pedido = {
+        itens: carrinho,
+        data: new Date().toISOString(),
+        total: carrinho.reduce((total, item) => total + item.preco * item.quantidade, 0),
+    };
+
+    fetch('/api/pedidos', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(pedido),
+    })
+        .then(response => {
+            if (response.ok) {
+                alert("Pedido finalizado com sucesso!");
+                localStorage.removeItem('carrinho');
+                document.getElementById("add").innerHTML = ""; // Limpa o carrinho visualmente
+                document.getElementById("Subtotal").innerText = "";
+                document.getElementById("Frete").innerText = "";
+                document.getElementById("Total").innerText = "";
+            } else {
+                alert("Erro ao finalizar o pedido. Tente novamente.");
+            }
+        })
+        .catch(err => {
+            console.error('Erro ao enviar o pedido:', err);
+            alert("Erro ao finalizar o pedido. Tente novamente.");
+        });
+}
