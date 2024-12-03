@@ -137,6 +137,6 @@ Adicione aqui imagens representativas da interface, como:
 
 
 
-## 10. Contato
+## 9. Contato
 Desenvolvedor: [Kevin Gabriel]  
 E-mail: [kgsenaxavier25@gmail.com]
