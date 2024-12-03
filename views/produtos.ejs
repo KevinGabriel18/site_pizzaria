@@ -121,29 +121,29 @@
     <script src="/javascripts/passar-produto.js"></script>
     <script>
         async function carregarProdutos() {
-  try {
-    const response = await fetch('/produtos');
-    const produtos = await response.json();
-    const listaProdutos = document.getElementById('listaProdutos');
-    listaProdutos.innerHTML = ''; // Limpar a lista antes de atualizar
+    try {
+        const response = await fetch('/produtos');
+        const produtos = await response.json();
+        const listaProdutos = document.getElementById('listaProdutos');
+        listaProdutos.innerHTML = '';
 
-    produtos.forEach(produto => {
-      const produtoDiv = document.createElement('div');
-      produtoDiv.className = 'produto';
-      produtoDiv.innerHTML = `
-        <img src="${produto.imagem}" alt="${produto.nome}" style="width: 150px; height: auto;" />
-        <h3>${produto.nome}</h3>
-        <p>R$ ${produto.preco.toFixed(2)}</p>
-      `;
-      listaProdutos.appendChild(produtoDiv);
-    });
-  } catch (error) {
-    console.error('Erro ao carregar produtos:', error);
-  }
+        produtos.forEach((produto) => {
+            const produtoDiv = document.createElement('div');
+            produtoDiv.className = 'prod';
+            produtoDiv.innerHTML = `
+                <img class="imagprod" src="${produto.imagem}" alt="${produto.nome}" />
+                <div class="container-prod">
+                    <h3>${produto.nome}</h3>
+                    <div class="preco-produto">R$ ${produto.preco.toFixed(2)}</div>
+                    <button class="adc-butao">Adicionar</button>
+                </div>
+            `;
+            listaProdutos.appendChild(produtoDiv);
+        });
+    } catch (error) {
+        console.error('Erro ao carregar produtos:', error);
+    }
 }
-
-// Chamada ao carregar a página
-document.addEventListener('DOMContentLoaded', carregarProdutos);
 
     </script>
     

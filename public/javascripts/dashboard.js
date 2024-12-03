@@ -16,68 +16,68 @@ document.addEventListener('DOMContentLoaded', () => {
         modalCadastro.style.display = 'none';
     });
 
+    
     // Cadastro de produto
     formCadastroProduto.addEventListener('submit', async (e) => {
         e.preventDefault();
     
         const nomeProduto = document.getElementById('nomeProduto').value;
         const precoProduto = document.getElementById('precoProduto').value;
-        const imagemProduto = document.getElementById('imagemProduto').value; // Agora pega o valor do link
-    
-        if (!imagemProduto) {
-            alert('O link da imagem do produto é obrigatório');
-            return;
-        }
+        const imagemProduto = document.getElementById('imagemProduto').value;
     
         const produto = {
             nomeProduto,
             precoProduto,
-            imagemProduto, // Inclui o link diretamente no objeto
+            imagemProduto,
         };
     
         try {
             const response = await fetch('/produtos/cadastrar', {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
+                headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(produto),
             });
     
             const data = await response.json();
+    
             if (response.ok) {
                 alert(data.message);
                 carregarProdutos(); // Atualiza a lista de produtos
-                modalCadastro.style.display = 'none'; // Fecha o modal
+                modalCadastro.style.display = 'none';
             } else {
                 alert(data.message || 'Erro ao cadastrar produto');
             }
         } catch (error) {
-            alert('Erro ao cadastrar produto');
-            console.error(error);
+            console.error('Erro ao cadastrar produto:', error);
+            alert('Erro ao cadastrar produto.');
         }
     });
     
     
     // Ajuste para exibir as imagens ao carregar os produtos
     async function carregarProdutos() {
-        const response = await fetch('/produtos');
-        const produtos = await response.json();
-        listaProdutos.innerHTML = '';
-        
-        produtos.forEach(produto => {
-            const produtoDiv = document.createElement('div');
-            produtoDiv.innerHTML = `
-                <img src="${produto.imagem}" alt="${produto.nome}" style="width: 100px; height: auto;" />
-                <p>${produto.nome} - R$${produto.preco}</p>
-                <button class="editarProduto" data-id="${produto.id}">Editar</button>
-                <button class="excluirProduto" data-id="${produto.id}">Excluir</button>
-            `;
-            listaProdutos.appendChild(produtoDiv);
-        });
+        try {
+            const response = await fetch('/produtos');
+            const produtos = await response.json();
+            listaProdutos.innerHTML = '';
+    
+            produtos.forEach((produto) => {
+                const produtoDiv = document.createElement('div');
+                produtoDiv.innerHTML = `
+                    <img src="${produto.imagem}" alt="${produto.nome}" style="width: 100px; height: auto;" />
+                    <p>${produto.nome} - R$ ${produto.preco.toFixed(2)}</p>
+                    <button class="editarProduto" data-id="${produto.id}">Editar</button>
+                    <button class="excluirProduto" data-id="${produto.id}">Excluir</button>
+                `;
+                listaProdutos.appendChild(produtoDiv);
+            });
+        } catch (error) {
+            console.error('Erro ao carregar produtos:', error);
+        }
     }
+    
     
     // Inicializa a lista de produtos e pedidos
     carregarProdutos();
-    carregarPedidos();
+   
 });

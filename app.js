@@ -180,39 +180,40 @@ app.post('/produtos/cadastrar', async (req, res) => {
   const { nomeProduto, precoProduto, imagemProduto } = req.body;
 
   if (!nomeProduto || !precoProduto || !imagemProduto) {
-    return res.status(400).json({ message: 'Todos os campos são obrigatórios.' });
+      return res.status(400).json({ message: 'Todos os campos são obrigatórios.' });
   }
 
   try {
-    // Salvar o produto no Firestore
-    const docRef = await addDoc(collection(db, "produtos"), {
-      nome: nomeProduto,
-      preco: parseFloat(precoProduto),
-      imagem: imagemProduto,
-      createdAt: new Date()
-    });
+      const docRef = await addDoc(collection(db, "produtos"), {
+          nome: nomeProduto,
+          preco: parseFloat(precoProduto),
+          imagem: imagemProduto,
+          createdAt: new Date(),
+      });
 
-    res.status(200).json({ message: 'Produto cadastrado com sucesso!', id: docRef.id });
+      res.status(200).json({ message: 'Produto cadastrado com sucesso!', id: docRef.id });
   } catch (error) {
-    console.error('Erro ao cadastrar produto:', error);
-    res.status(500).json({ message: 'Erro ao cadastrar produto' });
+      console.error('Erro ao cadastrar produto:', error);
+      res.status(500).json({ message: 'Erro ao cadastrar produto' });
   }
 });
+
 
 // Rota para listar produtos
 app.get('/produtos', async (req, res) => {
   try {
-    const querySnapshot = await getDocs(collection(db, "produtos"));
-    const produtos = [];
-    querySnapshot.forEach(doc => {
-      produtos.push({ id: doc.id, ...doc.data() });
-    });
-    res.json(produtos);
+      const querySnapshot = await getDocs(collection(db, "produtos"));
+      const produtos = [];
+      querySnapshot.forEach((doc) => {
+          produtos.push({ id: doc.id, ...doc.data() });
+      });
+      res.json(produtos);
   } catch (error) {
-    console.error('Erro ao listar produtos:', error);
-    res.status(500).json({ message: 'Erro ao listar produtos' });
+      console.error('Erro ao listar produtos:', error);
+      res.status(500).json({ message: 'Erro ao listar produtos' });
   }
 });
+
 
 
 
